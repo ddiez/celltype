@@ -35,9 +35,9 @@ get_db <- function(name = "immgen", org = "human") {
   }
 
   if (org == "human") {
-    db <- db %>% select(-mouse) %>% dplyr::rename(symbol = human)
+    db <- db %>% select(celltype, symbol = human, expression)
   } else {
-    db <- db %>% select(-human) %>% dplyr::rename(symbol = mouse)
+    db <- db %>% select(celltype, symbol = mouse, expression)
   }
 
   db
