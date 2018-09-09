@@ -39,4 +39,44 @@ predict_celltype.matrix <- function(x, db = NULL, name = "immgen", org = "human"
   cor(db, x)
 }
 
+#' choose_celltype
+#'
+#' Make decision about cell type identity based on prediction matrix.
+#'
+#' @param x a matrix of cell type predictions.
+#'
+#' @export
+choose_celltype <- function(x) {
+  UseMethod("choose_celltype")
+}
+
+#' @rdname choose_celltype
+#' @export
+choose_celltype.matrix <- function(x) {
+  x <- to_tidy(x, row.name = "celltype", col.name = "cell_id", value = "correlation") %>%
+    arrange(cell_id)
+
+  # This is specific of immgen so we leave it out for now.
+  # x <- x %>%
+  #   mutate(celltype = sub("\\..*", "", celltype)) %>%
+  #   group_by(cell_id, celltype) %>%
+  #   summarize(correlation = max(correlation, na.rm = TRUE))
+
+  x %>%
+    group_by(cell_id) %>%
+    slice(which.max(correlation))
+}
+
+#' fix_immgen_celltype
+#'
+#' Fixes the cell type names in the immgen dataset by picking the upper level
+#' cell type in the hierarchy.
+#'
+#' @param x data.frame with cell type predictions.
+#' @param colname name of column to fix.
+#'
+#' @export
+fix_immgen_celltype <- function(x) {
+  UseMethod("fix_immgen_celltype")
+}
 
