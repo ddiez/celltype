@@ -6,7 +6,7 @@
 \alias{fix_immgen_celltype.data.frame}
 \title{fix_immgen_celltype}
 \usage{
-fix_immgen_celltype(x)
+fix_immgen_celltype(x, colname = "celltype_immgen")
 
 \method{fix_immgen_celltype}{SingleCellExperiment}(x,
   colname = "celltype_immgen")
