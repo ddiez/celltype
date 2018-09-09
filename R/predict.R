@@ -79,19 +79,19 @@ choose_celltype.matrix <- function(x) {
 #' @param colname name of column to fix.
 #'
 #' @export
-fix_immgen_celltype <- function(x, colname = "celltype_immgen") {
+fix_immgen_celltype <- function(x, colname = "celltype") {
   UseMethod("fix_immgen_celltype")
 }
 
 #' @rdname fix_immgen_celltype
 #' @export
-fix_immgen_celltype.SingleCellExperiment <- function(x, colname = "celltype_immgen") {
+fix_immgen_celltype.SingleCellExperiment <- function(x, colname = "celltype") {
   fix_immgen_celltype(colData(x) %>% as.data.frame(), colname = colname)
 }
 
 
 #' @rdname fix_immgen_celltype
 #' @export
-fix_immgen_celltype.data.frame <- function(x, colname = "celltype_immgen") {
+fix_immgen_celltype.data.frame <- function(x, colname = "celltype") {
   x %>% mutate(!!colname := sub("\\..*", "", x[[colname]])) %>% pull(!!colname)
 }

@@ -6,12 +6,12 @@
 \alias{fix_immgen_celltype.data.frame}
 \title{fix_immgen_celltype}
 \usage{
-fix_immgen_celltype(x, colname = "celltype_immgen")
+fix_immgen_celltype(x, colname = "celltype")
 
 \method{fix_immgen_celltype}{SingleCellExperiment}(x,
-  colname = "celltype_immgen")
+  colname = "celltype")
 
-\method{fix_immgen_celltype}{data.frame}(x, colname = "celltype_immgen")
+\method{fix_immgen_celltype}{data.frame}(x, colname = "celltype")
 }
 \arguments{
 \item{x}{data.frame with cell type predictions.}

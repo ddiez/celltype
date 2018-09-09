@@ -54,7 +54,7 @@ head(celltype)
 For Immgen dictionary we can focus on the top level cell hierarchy.
 
 ```{r}
-celltype_simple <- fix_immgen_celltype(celltype, colname = "celltype")
+celltype_simple <- fix_immgen_celltype(celltype)
 
 celltype <- celltype %>%mutate(celltype_simple = celltype_simple)
 
