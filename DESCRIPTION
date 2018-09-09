@@ -7,9 +7,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "diego10ruiz@gmail.com")
 Description: Prediction and analysis of cell types from single cell experiments.
-Imports: 
+Imports:
     tidyr,
-    dplyr
+    dplyr,
+    d10misc
 Suggests:
     SingleCellExperiment
 License: MIT + file LICENSE
