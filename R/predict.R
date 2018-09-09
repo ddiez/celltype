@@ -4,33 +4,34 @@
 #' @param org target organism.
 #' @param name name of cell type dictionary.
 #' @param db a matrix cell type dictionary.
+#' @param ... arguments passed down to methods.
 #'
 #' @export
-predict_celltype <- function(x, org = "human", name = "immgen", db = NULL) {
+predict_celltype <- function(x, org = "mouse", name = "immgen", db = NULL, ...) {
   UseMethod("predict_celltype")
 }
 
 #' @rdname predict_celltype
 #' @param assay.name name of the assay to obtain expression matrix.
 #' @export
-predict_celltype.SingleCellExperiment <- function(x, org = "human", name = "immgen", db = NULL, assay.name = "logcounts") {
+predict_celltype.SingleCellExperiment <- function(x, org = "mouse", name = "immgen", db = NULL, assay.name = "logcounts", ...) {
   y <- assay(x, assay.name)
   rownames(y) <- rowData(x)[["symbol"]]
-  predict_celltype(y, db = db, name = name, org = org)
+  predict_celltype(y, org = org, name = name, db = db)
 }
 
 #' @rdname predict_celltype
 #' @export
-predict_celltype.ExpressionSet <- function(x, org = "human", name = "immgen", db = NULL) {
+predict_celltype.ExpressionSet <- function(x, org = "mouse", name = "immgen", db = NULL, ...) {
   y <- exprs(x)
   fdata <- pData(featureData(x))
   rownames(y) <- fdata[["symbol"]]
-  predict_celltype(x, db = db, name = name, org = org)
+  predict_celltype(x, org = org, name = name, db = db)
 }
 
 #' @rdname predict_celltype
 #' @export
-predict_celltype.matrix <- function(x, db = NULL, name = "immgen", org = "human") {
+predict_celltype.matrix <- function(x, org = "mouse", name = "immgen", db = NULL, ...) {
   if (is.null(db))
     db <- get_db(name, org) %>% to_matrix()
 

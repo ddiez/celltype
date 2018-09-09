@@ -7,16 +7,16 @@
 \alias{predict_celltype.matrix}
 \title{predict_celltyp}
 \usage{
-predict_celltype(x, org = "human", name = "immgen", db = NULL)
+predict_celltype(x, org = "mouse", name = "immgen", db = NULL, ...)
 
-\method{predict_celltype}{SingleCellExperiment}(x, org = "human",
-  name = "immgen", db = NULL, assay.name = "logcounts")
+\method{predict_celltype}{SingleCellExperiment}(x, org = "mouse",
+  name = "immgen", db = NULL, assay.name = "logcounts", ...)
 
-\method{predict_celltype}{ExpressionSet}(x, org = "human",
-  name = "immgen", db = NULL)
+\method{predict_celltype}{ExpressionSet}(x, org = "mouse",
+  name = "immgen", db = NULL, ...)
 
-\method{predict_celltype}{matrix}(x, db = NULL, name = "immgen",
-  org = "human")
+\method{predict_celltype}{matrix}(x, org = "mouse", name = "immgen",
+  db = NULL, ...)
 }
 \arguments{
 \item{x}{object with count matrix.}
@@ -26,6 +26,8 @@ predict_celltype(x, org = "human", name = "immgen", db = NULL)
 \item{name}{name of cell type dictionary.}
 
 \item{db}{a matrix cell type dictionary.}
+
+\item{...}{arguments passed down to methods.}
 
 \item{assay.name}{name of the assay to obtain expression matrix.}
 }
