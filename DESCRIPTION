@@ -15,6 +15,7 @@ Imports:
 Suggests:
   Biobase,
   SingleCellExperiment
+Remotes: ddiez/d10misc
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
