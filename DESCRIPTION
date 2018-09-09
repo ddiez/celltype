@@ -2,17 +2,19 @@ Package: celltype
 Title: Prediction and analysis of cell types from single cell experiments
 Version: 0.0.0.9000
 Authors@R:
-    person(given = "Diego",
-           family = "Diez",
-           role = c("aut", "cre"),
-           email = "diego10ruiz@gmail.com")
+  person(given = "Diego",
+         family = "Diez",
+         role = c("aut", "cre"),
+         email = "diego10ruiz@gmail.com")
 Description: Prediction and analysis of cell types from single cell experiments.
 Imports:
-    tidyr,
-    dplyr,
-    d10misc
+  tidyr,
+  dplyr,
+  d10misc,
+  tibble
 Suggests:
-    SingleCellExperiment
+  Biobase,
+  SingleCellExperiment
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

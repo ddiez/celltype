@@ -3,7 +3,7 @@
 #' @name celltype
 #' @docType package
 #'
-#' @import tidyr dplyr
+#' @import tidyr dplyr tibble
 #' @importFrom d10misc to_tidy
 #' @importFrom stats cor
 NULL
