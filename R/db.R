@@ -24,11 +24,11 @@ get_db <- function(name = "immgen", org = "human") {
 
   if (name == "immgen") {
     library(rdcq)
-    db <- celltype::db_immgen
+    db <- celltype::immgen.db
   }
 
   if (name == "immnav") {
-    db <- celltype::db_immnav
+    db <- celltype::immnav.db
   }
 
   if (name == "mca.spleen") {
