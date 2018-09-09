@@ -5,4 +5,5 @@
 #'
 #' @import tidyr dplyr
 #' @importFrom d10misc to_tidy
+#' @importFrom stats cor
 NULL
