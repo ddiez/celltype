@@ -64,7 +64,8 @@ choose_celltype.matrix <- function(x) {
 
   x %>%
     group_by(cell_id) %>%
-    slice(which.max(correlation))
+    slice(which.max(correlation)) %>%
+    ungroup()
 }
 
 #' fix_immgen_celltype
