@@ -35,8 +35,8 @@ predict_celltype.matrix <- function(x, org = "mouse", name = "immgen", db = NULL
   if (is.null(db))
     db <- get_db(name, org) %>% to_matrix()
 
-  x <- x[rownames(x) %in% rownames(db), ]
-  db <- db[rownames(x), ]
+  x <- x[rownames(x) %in% rownames(db), , drop = FALSE]
+  db <- db[rownames(x), , drop = FALSE]
 
   cor(db, x)
 }
