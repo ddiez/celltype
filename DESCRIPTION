@@ -19,7 +19,8 @@ Imports:
 Suggests:
   SingleCellExperiment,
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 Remotes: ddiez/d10misc
 License: MIT + file LICENSE
 Encoding: UTF-8
