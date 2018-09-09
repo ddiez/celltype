@@ -1,13 +1,17 @@
 Package: celltype
-Title: What the Package Does (One Line, Title Case)
+Title: Prediction and analysis of cell types from single cell experiments
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
+Authors@R:
+    person(given = "Diego",
+           family = "Diez",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "diego10ruiz@gmail.com")
+Description: Prediction and analysis of cell types from single cell experiments.
+Imports: 
+    tidyr,
+    dplyr
+Suggests:
+    SingleCellExperiment
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

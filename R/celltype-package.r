@@ -3,5 +3,6 @@
 #' @name celltype
 #' @docType package
 #'
-#' @import tidyverse
+#' @import tidyr dplyr
+#' @importFrom d10misc to_tidy
 NULL
