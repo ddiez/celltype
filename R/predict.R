@@ -11,6 +11,7 @@ predict_celltype <- function(x, org = "human", name = "immgen", db = NULL) {
 }
 
 #' @rdname predict_celltype
+#' @param assay.name name of the assay to obtain expression matrix.
 #' @export
 predict_celltype.SingleCellExperiment <- function(x, org = "human", name = "immgen", db = NULL, assay.name = "logcounts") {
   y <- assay(x, assay.name)

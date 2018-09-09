@@ -26,6 +26,8 @@ predict_celltype(x, org = "human", name = "immgen", db = NULL)
 \item{name}{name of cell type dictionary.}
 
 \item{db}{a matrix cell type dictionary.}
+
+\item{assay.name}{name of the assay to obtain expression matrix.}
 }
 \description{
 predict_celltyp
