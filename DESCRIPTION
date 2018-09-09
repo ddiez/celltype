@@ -10,10 +10,11 @@ Description: Prediction and analysis of cell types from single cell experiments.
 Imports:
   tidyr,
   dplyr,
-  d10misc,
-  tibble
-Suggests:
+  tibble,
   Biobase,
+  SummarizedExperiment,
+  d10misc
+Suggests:
   SingleCellExperiment
 Remotes: ddiez/d10misc
 License: MIT + file LICENSE
