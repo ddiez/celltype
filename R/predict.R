@@ -6,6 +6,7 @@ predict_celltype <- function(x, db = NULL, name = "immgen", org = "human") {
 }
 
 #' @rdname predict_celltype
+#' @export
 predict_celltype.SingleCellExperiment <- function(x, db = NULL, name = "immgen", org = "human", assay.name = "logcounts") {
   y <- assay(x, assay.name)
   rownames(y) <- rowData(x)[["symbol"]]
@@ -13,6 +14,7 @@ predict_celltype.SingleCellExperiment <- function(x, db = NULL, name = "immgen",
 }
 
 #' @rdname predict_celltype
+#' @export
 predict_celltype.ExpressionSet <- function(x, db = NULL, name = "immgen", org = "human") {
   y <- exprs(x)
   fdata <- pData(featureData(x))
@@ -21,6 +23,7 @@ predict_celltype.ExpressionSet <- function(x, db = NULL, name = "immgen", org = 
 }
 
 #' @rdname predict_celltype
+#' @export
 predict_celltype.matrix <- function(x, db = NULL, name = "immgen", org = "human") {
   if (is.null(db))
     db <- get_db(name, org) %>% to_matrix()
