@@ -56,6 +56,7 @@ choose_celltype <- function(x) {
 #' @export
 choose_celltype.matrix <- function(x) {
   x <- to_tidy(x, row.name = "celltype", col.name = "cell_id", value = "correlation") %>%
+    select(cell_id, celltype, correlation) %>%
     arrange(cell_id)
 
   # This is specific of immgen so we leave it out for now.
