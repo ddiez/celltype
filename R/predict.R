@@ -59,12 +59,6 @@ choose_celltype.matrix <- function(x) {
     select(cell_id, celltype, correlation) %>%
     arrange(cell_id)
 
-  # This is specific of immgen so we leave it out for now.
-  # x <- x %>%
-  #   mutate(celltype = sub("\\..*", "", celltype)) %>%
-  #   group_by(cell_id, celltype) %>%
-  #   summarize(correlation = max(correlation, na.rm = TRUE))
-
   x %>%
     group_by(cell_id) %>%
     slice(which.max(correlation)) %>%
