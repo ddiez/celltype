@@ -8,4 +8,10 @@ process_immgen <- function() {
   db %>% select(celltype, human, mouse, expression)
 }
 
-process_immgen()
+db <- process_immgen()
+db
+
+# fix celltype case.
+immgen.db <- db %>% mutate(celltype = toupper(celltype))
+
+use_data(immgen.db, overwrite = TRUE)
