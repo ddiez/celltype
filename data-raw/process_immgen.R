@@ -9,5 +9,3 @@ process_immgen <- function() {
 }
 
 process_immgen()
-process_immgen("mouse")
-process_immgen("human")
