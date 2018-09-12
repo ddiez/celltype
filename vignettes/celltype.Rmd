@@ -51,25 +51,23 @@ sce1
 We can use `predict_celltype()` to obtain a matrix of cell type correlations. For each cell in the dataset we obtain the computed correlation to each of the markers that are present.
 
 ```{r}
-celltype <- predict_celltype(sce1)
-celltype[1:5, 1:3]
+celltype1 <- predict_celltype(sce1)
+celltype1[1:5, 1:3]
 ```
 
 To choose a particular celltype we can use `choose_celltype()`, which does that based on maximum correlation.
 
 ```{r}
-celltype <- choose_celltype(celltype)
-head(celltype)
+celltype1 <- choose_celltype(celltype1)
+head(celltype1)
 ```
 
 The Immgen hierarchy of cells is very specific. The function `fix_immgen_celltype()` enables to focus on the top level cell in the hierarchy.
 
 ```{r}
-celltype_simple <- fix_immgen_celltype(celltype)
+celltype1 <- celltype1 %>%mutate(celltype_simple = fix_immgen_celltype(celltype1))
 
-celltype <- celltype %>%mutate(celltype_simple = celltype_simple)
-
-head(celltype)
+head(celltype1)
 ```
 
 ## Using the Immuno-Navigator dictionary
@@ -86,6 +84,18 @@ And again choose the cell type based on maximum correlation.
 ```{r}
 celltype2 <- choose_celltype(celltype2)
 head(celltype2)
+```
+
+## Using MCA dictionary
+
+```{r}
+celltype3 <- predict_celltype(sce1, name = "mca")
+celltype3[1:5, 1:2]
+```
+
+```{r}
+celltype3 <- choose_celltype(celltype3)
+head(celltype3)
 ```
 
 ## Using custom dictionaries
@@ -105,18 +115,37 @@ my.db[c("Cd69", "Cd19", "Cd4", "Cd8a"), ]
 ```
 
 ```{r}
-celltype3 <- predict_celltype(sce1, db = my.db)
-celltype3[1:5, 1:5]
+celltype4 <- predict_celltype(sce1, db = my.db)
+celltype4[1:5, 1:5]
 ```
 
 ```{r}
-celltype3 <- choose_celltype(celltype3)
+celltype4 <- choose_celltype(celltype4)
+celltype4
 ```
+
+## Compare all predictions
 
 We can compare the different predictions.
 
-```{r}
-celltype4 <- left_join(celltype %>% select(-celltype_simple), celltype2, by = "cell_id", suffix = c(".immgen", ".immnav"))
-datatable(left_join(celltype4, celltype3, by = "cell_id") %>% head(10))
-```
+```{r message=FALSE}
+celltype1 <- celltype1 %>% select(-celltype_simple) %>%
+  dplyr::rename(cell_img = celltype, cor_img = correlation) %>%
+  mutate(cor_img = format(cor_img, digits = 3))
 
+celltype2 <- celltype2 %>%
+  dplyr::rename(cell_nav = celltype, cor_nav = correlation) %>%
+  mutate(cor_nav = format(cor_nav, digits = 3))
+
+celltype3 <- celltype3 %>%
+  dplyr::rename(cell_mca = celltype, cor_mca = correlation) %>%
+  mutate(cor_mca = format(cor_mca, digits = 3))
+
+celltype4 <- celltype4 %>%
+  dplyr::rename(cell_cus = celltype, cor_cus = correlation) %>%
+  mutate(cor_cus = format(cor_cus, digits = 3))
+
+
+Reduce(left_join, list(celltype1, celltype2, celltype3, celltype4)) %>%
+  datatable()
+```
