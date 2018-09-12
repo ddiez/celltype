@@ -46,7 +46,6 @@ get_db <- function(name = "immgen", org = "human") {
 #' to_matrix
 #'
 #' @param db database object.
-#' @export
 to_matrix <- function(db) {
   db %>% spread("celltype", "expression") %>%
     as.data.frame() %>%
