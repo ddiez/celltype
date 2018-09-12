@@ -26,7 +26,11 @@ tail(z)
 
 z <- z %>% drop_na()
 z
-mca.db <- z %>% group_by(celltype, symbol) %>% summarize(expression = mean(count)) %>% ungroup()
+mca.db <- z %>%
+  group_by(celltype, symbol) %>%
+  summarize(expression = mean(count)) %>%
+  ungroup() %>%
+  mutate(expression = log10(expression + 1))
 
 mca.db %>% group_by(celltype) %>% summarize(count = n())
 mca.db %>% group_by(symbol) %>% summarize(count = n())
