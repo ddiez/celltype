@@ -18,9 +18,10 @@ Imports:
   d10misc
 Suggests:
   SingleCellExperiment,
-    knitr,
-    rmarkdown,
-    testthat
+  knitr,
+  rmarkdown,
+  testthat,
+  DT
 Remotes: ddiez/d10misc
 License: MIT + file LICENSE
 Encoding: UTF-8
