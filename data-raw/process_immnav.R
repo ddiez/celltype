@@ -23,11 +23,12 @@ z <- z %>% left_join(fdata, by = "entrezgene")
 z
 
 # summarize.
-db_immnav <- z %>% group_by(celltype, symbol) %>% summarize(expression = mean(expression)) %>% ungroup()
-db_immnav
+immnav.db <- z %>% group_by(celltype, symbol) %>% summarize(expression = mean(expression)) %>% ungroup()
+immnav.db
 
-db_immnav <- db_immnav %>%
+immnav.db <- immnav.db %>%
   left_join(get_markers(), by = c("symbol" = "mouse")) %>%
   rename(mouse = symbol) %>%
   select(celltype, human, mouse, expression)
 
+use_data(mca.db, overwrite = TRUE)
