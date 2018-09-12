@@ -31,7 +31,7 @@ get_db <- function(name = "immgen", org = "human") {
   }
 
   if (name == "mca.spleen") {
-
+    db <- celltype::mca.db
   }
 
   if (org == "human") {
