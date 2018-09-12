@@ -19,7 +19,7 @@ get_markers <- function(name = "immgen") {
 #' @export
 #'
 get_db <- function(name = "immgen", org = "human") {
-  name <- match.arg(name, c("immgen", "immnav", "mca.spleen"))
+  name <- match.arg(name, c("immgen", "immnav", "mca"))
   org <- match.arg(org, c("human", "mouse"))
 
   if (name == "immgen") {
