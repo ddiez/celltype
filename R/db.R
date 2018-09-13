@@ -22,17 +22,7 @@ get_db <- function(name = "immgen", org = "human") {
   name <- match.arg(name, c("immgen", "immnav", "mca"))
   org <- match.arg(org, c("human", "mouse"))
 
-  if (name == "immgen") {
-    db <- celltype::immgen.db
-  }
-
-  if (name == "immnav") {
-    db <- celltype::immnav.db
-  }
-
-  if (name == "mca") {
-    db <- celltype::mca.db
-  }
+  db <- get(paste0(name, ".db"))
 
   db %>% select(celltype, symbol = !!org, expression)
 }
