@@ -26,6 +26,8 @@ Here we introduce the usage of `celltype` package. The main function uses a dict
 
 # Dataset
 
+## Immune cell dictionary
+
 As immune gene markers we use a set defined by the Immgen project. We have gene symbols for both human and mouse.
 
 ```{r}
@@ -37,6 +39,8 @@ We use a dictionary of gene expression for the gene markers in different cell ty
 ```{r}
 head(immgen.db)
 ```
+
+## Experimental data
 
 As experimental dataset we use a test `SingleCellExperiment` object containing 500 murine splenic cells.
 
@@ -121,7 +125,7 @@ celltype4[1:5, 1:5]
 
 ```{r}
 celltype4 <- choose_celltype(celltype4)
-celltype4
+head(celltype4)
 ```
 
 ## Compare all predictions
