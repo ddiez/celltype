@@ -1,7 +1,11 @@
 # process MCA data to be used as celltype dictionary.
+library(celltype)
+library(readr)
+library(tidyr)
+library(dplyr)
 
 # read count data.
-f <- "/Volumes/Biodev/db/expression/MCA/5435866/500more_dge/Spleen_dge.txt.gz"
+#f <- "/Volumes/Biodev/db/expression/MCA/5435866/500more_dge/Spleen_dge.txt.gz"
 f <- "/Volumes/Biodev/db/expression/MCA/5435866/rmbatch_dge/Spleen_rm.batch_dge.txt.gz"
 cell_index <- scan(f, nlines = 1, what = "")
 
@@ -42,4 +46,4 @@ mca.db <- mca.db %>%
   drop_na() %>%
   select(celltype, human, mouse, expression)
 
-use_data(mca.db, overwrite = TRUE)
+devtools::use_data(mca.db, overwrite = TRUE)
