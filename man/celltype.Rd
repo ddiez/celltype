@@ -4,7 +4,7 @@
 \name{celltype}
 \alias{celltype}
 \alias{celltype-package}
-\title{celltype.}
+\title{celltype-package}
 \description{
-celltype.
+Package for the analysis of cell types using single cell technologies.
 }

@@ -1,4 +1,6 @@
-#' celltype.
+#' celltype-package
+#'
+#' Package for the analysis of cell types using single cell technologies.
 #'
 #' @name celltype
 #' @docType package
