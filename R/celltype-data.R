@@ -20,6 +20,20 @@ NULL
 #' @keywords data
 NULL
 
+#' Cell type dictionary from MCA (spleen).
+#'
+#' @name mca_spleen.db
+#' @docType data
+#' @keywords data
+NULL
+
+#' Cell type dictionary from MCA (thymus).
+#'
+#' @name mca_thymus.db
+#' @docType data
+#' @keywords data
+NULL
+
 #' SingleCellExperiment example dataset.
 #'
 #' @name sce1

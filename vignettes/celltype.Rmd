@@ -93,7 +93,7 @@ head(celltype2)
 ## Using MCA dictionary
 
 ```{r}
-celltype3 <- predict_celltype(sce1, name = "mca")
+celltype3 <- predict_celltype(sce1, name = "mca_spleen")
 celltype3[1:5, 1:2]
 ```
 
