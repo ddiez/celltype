@@ -34,13 +34,7 @@ get_db <- function(name = "immgen", org = "human") {
     db <- celltype::mca.db
   }
 
-  if (org == "human") {
-    db <- db %>% select(celltype, symbol = human, expression)
-  } else {
-    db <- db %>% select(celltype, symbol = mouse, expression)
-  }
-
-  db
+  db %>% select(celltype, symbol = !!org, expression)
 }
 
 #' to_matrix
