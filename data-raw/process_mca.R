@@ -21,9 +21,7 @@ read_mca <- function(filename, mca.annot = NULL) {
 
 read_mca_annotations <- function(filename) {
   x <- read_csv(filename)
-  x <- x %>% select(cell_index = Cell.name, tissue = Tissue, celltype = Annotation)
-  #x <- x %>% filter(grepl("Spleen", tissue))
-  x
+  x %>% select(cell_index = Cell.name, tissue = Tissue, celltype = Annotation)
 }
 
 ### MCA annotations.
