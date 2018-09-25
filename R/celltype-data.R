@@ -20,16 +20,9 @@ NULL
 #' @keywords data
 NULL
 
-#' Cell type dictionary from MCA (spleen).
+#' Cell type dictionary from MCA.
 #'
-#' @name mca_spleen.db
-#' @docType data
-#' @keywords data
-NULL
-
-#' Cell type dictionary from MCA (thymus).
-#'
-#' @name mca_thymus.db
+#' @name mca.db
 #' @docType data
 #' @keywords data
 NULL
