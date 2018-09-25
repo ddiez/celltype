@@ -15,7 +15,7 @@ predict_celltype <- function(x, org = "mouse", tissue = NULL, name = "immgen", d
 #' @rdname predict_celltype
 #' @param assay.name name of the assay to obtain expression matrix.
 #' @export
-predict_celltype.SingleCellExperiment <- function(x, org = "mouse", name = "immgen", tissue = NULL, db = NULL, assay.name = "logcounts", ...) {
+predict_celltype.SingleCellExperiment <- function(x, org = "mouse", tissue = NULL, name = "immgen", db = NULL, assay.name = "logcounts", ...) {
   y <- assay(x, assay.name)
   rownames(y) <- rowData(x)[["symbol"]]
   predict_celltype(y, org = org, name = name, tissue = tissue, db = db)
@@ -23,7 +23,7 @@ predict_celltype.SingleCellExperiment <- function(x, org = "mouse", name = "immg
 
 #' @rdname predict_celltype
 #' @export
-predict_celltype.ExpressionSet <- function(x, org = "mouse", name = "immgen", tissue = NULL, db = NULL, ...) {
+predict_celltype.ExpressionSet <- function(x, org = "mouse", tissue = NULL, name = "immgen", db = NULL, ...) {
   y <- exprs(x)
   fdata <- pData(featureData(x))
   rownames(y) <- fdata[["symbol"]]
@@ -32,7 +32,7 @@ predict_celltype.ExpressionSet <- function(x, org = "mouse", name = "immgen", ti
 
 #' @rdname predict_celltype
 #' @export
-predict_celltype.matrix <- function(x, org = "mouse", name = "immgen", tissue = NULL, db = NULL, ...) {
+predict_celltype.matrix <- function(x, org = "mouse", tissue = NULL, name = "immgen", db = NULL, ...) {
   if (is.null(db))
     db <- get_db(name, org = org, tissue = tissue) %>% to_matrix()
 

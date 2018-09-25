@@ -11,14 +11,14 @@ predict_celltype(x, org = "mouse", tissue = NULL, name = "immgen",
   db = NULL, ...)
 
 \method{predict_celltype}{SingleCellExperiment}(x, org = "mouse",
-  name = "immgen", tissue = NULL, db = NULL,
+  tissue = NULL, name = "immgen", db = NULL,
   assay.name = "logcounts", ...)
 
 \method{predict_celltype}{ExpressionSet}(x, org = "mouse",
-  name = "immgen", tissue = NULL, db = NULL, ...)
+  tissue = NULL, name = "immgen", db = NULL, ...)
 
-\method{predict_celltype}{matrix}(x, org = "mouse", name = "immgen",
-  tissue = NULL, db = NULL, ...)
+\method{predict_celltype}{matrix}(x, org = "mouse", tissue = NULL,
+  name = "immgen", db = NULL, ...)
 }
 \arguments{
 \item{x}{object with count matrix.}
