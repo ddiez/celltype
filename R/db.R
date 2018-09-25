@@ -25,6 +25,15 @@ get_db <- function(name = "immgen", org = "human") {
   db <- get(paste0(name, ".db"))
 
   db %>% select(celltype, symbol = !!org, expression)
+#' Returns a list of the celltypes available in the specified dictionary.
+#'
+#' @param name name of dictionary.
+#' @param tissue name of tissue.
+#'
+#' @export
+get_celltype <- function(name, tissue = NULL) {
+  db <- get_db(name, tissue = tissue)
+  sort(unique(db[["celltype"]]))
 }
 
 #' to_matrix
