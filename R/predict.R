@@ -3,37 +3,38 @@
 #' @param x object with count matrix.
 #' @param org target organism.
 #' @param name name of cell type dictionary.
+#' @param tissue name of the tissue.
 #' @param db a matrix cell type dictionary.
 #' @param ... arguments passed down to methods.
 #'
 #' @export
-predict_celltype <- function(x, org = "mouse", name = "immgen", db = NULL, ...) {
+predict_celltype <- function(x, org = "mouse", tissue = NULL, name = "immgen", db = NULL, ...) {
   UseMethod("predict_celltype")
 }
 
 #' @rdname predict_celltype
 #' @param assay.name name of the assay to obtain expression matrix.
 #' @export
-predict_celltype.SingleCellExperiment <- function(x, org = "mouse", name = "immgen", db = NULL, assay.name = "logcounts", ...) {
+predict_celltype.SingleCellExperiment <- function(x, org = "mouse", name = "immgen", tissue = NULL, db = NULL, assay.name = "logcounts", ...) {
   y <- assay(x, assay.name)
   rownames(y) <- rowData(x)[["symbol"]]
-  predict_celltype(y, org = org, name = name, db = db)
+  predict_celltype(y, org = org, name = name, tissue = tissue, db = db)
 }
 
 #' @rdname predict_celltype
 #' @export
-predict_celltype.ExpressionSet <- function(x, org = "mouse", name = "immgen", db = NULL, ...) {
+predict_celltype.ExpressionSet <- function(x, org = "mouse", name = "immgen", tissue = NULL, db = NULL, ...) {
   y <- exprs(x)
   fdata <- pData(featureData(x))
   rownames(y) <- fdata[["symbol"]]
-  predict_celltype(x, org = org, name = name, db = db)
+  predict_celltype(x, org = org, name = name, tissue = tissue, db = db)
 }
 
 #' @rdname predict_celltype
 #' @export
-predict_celltype.matrix <- function(x, org = "mouse", name = "immgen", db = NULL, ...) {
+predict_celltype.matrix <- function(x, org = "mouse", name = "immgen", tissue = NULL, db = NULL, ...) {
   if (is.null(db))
-    db <- get_db(name, org) %>% to_matrix()
+    db <- get_db(name, org = org, tissue = tissue) %>% to_matrix()
 
   x <- x[rownames(x) %in% rownames(db), , drop = FALSE]
   db <- db[rownames(x), , drop = FALSE]

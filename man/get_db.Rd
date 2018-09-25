@@ -4,12 +4,14 @@
 \alias{get_db}
 \title{get_db}
 \usage{
-get_db(name = "immgen", org = "human")
+get_db(name = "immgen", org = "mouse", tissue = NULL)
 }
 \arguments{
 \item{name}{name of database.}
 
 \item{org}{name of organism.}
+
+\item{tissue}{name of tissue.}
 }
 \description{
 get_db

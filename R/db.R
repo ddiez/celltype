@@ -15,16 +15,25 @@ get_markers <- function(name = "immgen") {
 #'
 #' @param name name of database.
 #' @param org name of organism.
+#' @param tissue name of tissue.
 #'
 #' @export
 #'
-get_db <- function(name = "immgen", org = "human") {
-  name <- match.arg(name, c("immgen", "immnav", "mca_spleen", "mca_thymus"))
+get_db <- function(name = "immgen", org = "mouse", tissue = NULL) {
+  name <- match.arg(name, c("immgen", "immnav", "mca"))
   org <- match.arg(org, c("human", "mouse"))
 
   db <- get(paste0(name, ".db"))
 
-  db %>% select(celltype, symbol = !!org, expression)
+  if (! is.null(tissue)) {
+    if (any(tissue %in% db[["tissue"]]))
+      db <- db %>% filter(tissue %in% !!tissue)
+    else
+      warning("tissue ", tissue, "not found in dictionary.")
+  }
+
+  db %>% select("celltype", "tissue", symbol = !!org, "expression")
+}
 
 #' Returns a list of the tissues available in the specified dictionary.
 #'
@@ -51,7 +60,8 @@ get_celltype <- function(name, tissue = NULL) {
 #'
 #' @param db database object.
 to_matrix <- function(db) {
-  db %>% spread("celltype", "expression") %>%
+  db %>% select(-tissue) %>%
+    spread("celltype", "expression") %>%
     as.data.frame() %>%
     column_to_rownames("symbol") %>%
     as.matrix()

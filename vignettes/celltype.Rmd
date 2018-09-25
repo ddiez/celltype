@@ -50,12 +50,12 @@ sce1
 
 # Analysis
 
-## General pipeline
+## Using the ImmGen dictionary
 
-We can use `predict_celltype()` to obtain a matrix of cell type correlations. For each cell in the dataset we obtain the computed correlation to each of the markers that are present.
+We can use `predict_celltype()` to obtain a matrix of cell type correlations. For each cell in the dataset we obtain the computed correlation to each of the markers that are present. By default the ImmGen dictionary is used.
 
 ```{r}
-celltype1 <- predict_celltype(sce1)
+celltype1 <- predict_celltype(sce1, tissue = "spleen")
 celltype1[1:5, 1:3]
 ```
 
@@ -93,7 +93,7 @@ head(celltype2)
 ## Using MCA dictionary
 
 ```{r}
-celltype3 <- predict_celltype(sce1, name = "mca_spleen")
+celltype3 <- predict_celltype(sce1, name = "mca", tissue = "spleen")
 celltype3[1:5, 1:2]
 ```
 
