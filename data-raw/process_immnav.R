@@ -31,4 +31,7 @@ immnav.db <- immnav.db %>%
   rename(mouse = symbol) %>%
   select(celltype, human, mouse, expression)
 
-use_data(mca.db, overwrite = TRUE)
+# fix tissue in immnav.
+immnav.db$tissue <- "mixture"
+
+use_data(immnav.db, overwrite = TRUE)
