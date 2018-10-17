@@ -55,7 +55,7 @@ sce1
 We can use `predict_celltype()` to obtain a matrix of cell type correlations. For each cell in the dataset we obtain the computed correlation to each of the markers that are present. By default the ImmGen dictionary is used.
 
 ```{r}
-celltype1 <- predict_celltype(sce1, tissue = "spleen")
+celltype1 <- predict_celltype(sce1, tissue = "SP")
 celltype1[1:5, 1:3]
 ```
 
