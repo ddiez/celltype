@@ -56,7 +56,12 @@ choose_celltype <- function(x) {
 #' @rdname choose_celltype
 #' @export
 choose_celltype.matrix <- function(x) {
-  sel.max <- apply(x, 2, which.max)
+  sel.max <- apply(x, 2, function(j) {
+    jj <- which.max(j)
+    if(length(jj) == 0)
+      jj <- NA_integer_
+    jj
+  })
   cellcor <- sapply(seq_len(ncol(x)), function(j) x[sel.max[j], j])
   tibble(cell_index = colnames(x), celltype = rownames(x)[sel.max], correlation = cellcor)
 }
