@@ -71,23 +71,15 @@ choose_celltype.matrix <- function(x) {
 #' Simplifies cell type names in the immgen dataset by picking the upper level
 #' cell type in the hierarchy.
 #'
-#' @param x data.frame with cell type predictions.
-#' @param colname name of column to fix.
+#' @param x character vector with cell type names from Immgen.
 #'
 #' @export
-simplify_immgen_celltype <- function(x, colname = "celltype") {
+simplify_immgen_celltype <- function(x) {
   UseMethod("simplify_immgen_celltype")
 }
 
 #' @rdname simplify_immgen_celltype
 #' @export
-simplify_immgen_celltype.SingleCellExperiment <- function(x, colname = "celltype") {
-  simplify_immgen_celltype(colData(x) %>% as.data.frame(), colname = colname)
-}
-
-
-#' @rdname simplify_immgen_celltype
-#' @export
-simplify_immgen_celltype.data.frame <- function(x, colname = "celltype") {
-  sub("\\..*", "", x[[colname]])
+simplify_immgen_celltype.character <- function(x) {
+  sub("\\..*", "", x)
 }

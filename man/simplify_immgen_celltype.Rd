@@ -2,21 +2,15 @@
 % Please edit documentation in R/predict.R
 \name{simplify_immgen_celltype}
 \alias{simplify_immgen_celltype}
-\alias{simplify_immgen_celltype.SingleCellExperiment}
-\alias{simplify_immgen_celltype.data.frame}
+\alias{simplify_immgen_celltype.character}
 \title{simplify_immgen_celltype}
 \usage{
-simplify_immgen_celltype(x, colname = "celltype")
+simplify_immgen_celltype(x)
 
-\method{simplify_immgen_celltype}{SingleCellExperiment}(x,
-  colname = "celltype")
-
-\method{simplify_immgen_celltype}{data.frame}(x, colname = "celltype")
+\method{simplify_immgen_celltype}{character}(x)
 }
 \arguments{
-\item{x}{data.frame with cell type predictions.}
-
-\item{colname}{name of column to fix.}
+\item{x}{character vector with cell type names from Immgen.}
 }
 \description{
 Simplifies cell type names in the immgen dataset by picking the upper level

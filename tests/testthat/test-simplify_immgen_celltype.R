@@ -2,7 +2,7 @@ context("simplify_immgen_celltype")
 
 celltype <- predict_celltype(celltype::sce1)
 celltype <- choose_celltype(celltype)
-celltype <- simplify_immgen_celltype(celltype)
+celltype <- simplify_immgen_celltype(celltype[["celltype"]])
 
 test_that("simplify_immgen_celltype works", {
   expect_is(celltype, "character")
