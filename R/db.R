@@ -8,7 +8,7 @@ get_markers <- function(name = "immgen") {
   name <- match.arg(name, c("immgen"))
 
   if (name == "immgen")
-    markers
+    celltype::markers
 }
 
 #' get_db
