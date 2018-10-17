@@ -39,7 +39,7 @@ predict_celltype.matrix <- function(x, org = "mouse", tissue = NULL, name = "imm
   x <- x[rownames(x) %in% rownames(db), , drop = FALSE]
   db <- db[rownames(x), , drop = FALSE]
 
-  cor(db, x, use = "na.or.complete")
+  cor(db, x)
 }
 
 #' choose_celltype
