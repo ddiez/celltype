@@ -56,14 +56,9 @@ choose_celltype <- function(x) {
 #' @rdname choose_celltype
 #' @export
 choose_celltype.matrix <- function(x) {
-  x <- to_tidy(x, row.name = "celltype", col.name = "cell_id", value = "correlation") %>%
-    select(cell_id, celltype, correlation) %>%
-    arrange(cell_id)
-
-  x %>%
-    group_by(cell_id) %>%
-    slice(which.max(correlation)) %>%
-    ungroup()
+  sel.max <- apply(x, 2, which.max)
+  cellcor <- sapply(seq_len(ncol(x)), function(j) x[sel.max[j], j])
+  tibble(cell_index = colnames(x), celltype = rownames(x)[sel.max], correlation = cellcor)
 }
 
 #' fix_immgen_celltype
