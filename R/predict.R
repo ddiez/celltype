@@ -84,5 +84,5 @@ fix_immgen_celltype.SingleCellExperiment <- function(x, colname = "celltype") {
 #' @rdname fix_immgen_celltype
 #' @export
 fix_immgen_celltype.data.frame <- function(x, colname = "celltype") {
-  x %>% mutate(!!colname := sub("\\..*", "", x[[colname]])) %>% pull(!!colname)
+  sub("\\..*", "", x[[colname]])
 }
