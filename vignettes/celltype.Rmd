@@ -66,10 +66,10 @@ celltype1 <- choose_celltype(celltype1)
 head(celltype1)
 ```
 
-The Immgen hierarchy of cells is very specific. The function `fix_immgen_celltype()` enables to focus on the top level cell in the hierarchy.
+The Immgen hierarchy of cells is very specific. The function `simplify_immgen_celltype()` enables to focus on the top level cell in the hierarchy.
 
 ```{r}
-celltype1 <- celltype1 %>%mutate(celltype_simple = fix_immgen_celltype(celltype1))
+celltype1 <- celltype1 %>%mutate(celltype_simple = simplify_immgen_celltype(celltype1))
 
 head(celltype1)
 ```
