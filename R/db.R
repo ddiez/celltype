@@ -27,7 +27,7 @@ get_db <- function(name = "immgen", org = "mouse", tissue = NULL) {
 
   if (! is.null(tissue)) {
     if (any(tissue %in% db[["tissue"]]))
-      db <- db %>% filter(.data$tissue %in% tissue)
+      db <- db %>% filter(.data$tissue %in% !!tissue)
     else
       warning("tissue ", tissue, "not found in dictionary.")
   }
