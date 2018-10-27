@@ -27,7 +27,7 @@ get_db <- function(name = "immgen", org = "mouse", tissue = NULL) {
 
   if (! is.null(tissue)) {
     if (any(tissue %in% db[["tissue"]]))
-      db <- db %>% filter(tissue %in% !!tissue)
+      db <- db %>% filter(.data$tissue %in% tissue)
     else
       warning("tissue ", tissue, "not found in dictionary.")
   }
@@ -60,7 +60,7 @@ get_celltype <- function(name, tissue = NULL) {
 #'
 #' @param db database object.
 to_matrix <- function(db) {
-  db %>% select(-tissue) %>%
+  db %>% select(- .data$tissue) %>%
     spread("celltype", "expression") %>%
     as.data.frame() %>%
     column_to_rownames("symbol") %>%
