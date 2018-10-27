@@ -5,6 +5,8 @@
 #' @param name name of cell type dictionary.
 #' @param tissue name of the tissue.
 #' @param db a matrix cell type dictionary.
+#' @param assay.name name of the assay to obtain expression matrix.
+#' @param gene.col name of the column containing gene names (default: symbol).
 #' @param ... arguments passed down to methods.
 #'
 #' @export
@@ -13,11 +15,10 @@ predict_celltype <- function(x, org = "mouse", tissue = NULL, name = "immgen", d
 }
 
 #' @rdname predict_celltype
-#' @param assay.name name of the assay to obtain expression matrix.
 #' @export
-predict_celltype.SingleCellExperiment <- function(x, org = "mouse", tissue = NULL, name = "immgen", db = NULL, assay.name = "logcounts", ...) {
+predict_celltype.SingleCellExperiment <- function(x, org = "mouse", tissue = NULL, name = "immgen", db = NULL, assay.name = "logcounts", gene.col = "symbol", ...) {
   y <- assay(x, assay.name)
-  rownames(y) <- rowData(x)[["symbol"]]
+  rownames(y) <- rowData(x)[[gene.col]]
   predict_celltype(y, org = org, name = name, tissue = tissue, db = db)
 }
 

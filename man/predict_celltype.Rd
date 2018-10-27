@@ -12,7 +12,7 @@ predict_celltype(x, org = "mouse", tissue = NULL, name = "immgen",
 
 \method{predict_celltype}{SingleCellExperiment}(x, org = "mouse",
   tissue = NULL, name = "immgen", db = NULL,
-  assay.name = "logcounts", ...)
+  assay.name = "logcounts", gene.col = "symbol", ...)
 
 \method{predict_celltype}{ExpressionSet}(x, org = "mouse",
   tissue = NULL, name = "immgen", db = NULL, ...)
@@ -34,6 +34,8 @@ predict_celltype(x, org = "mouse", tissue = NULL, name = "immgen",
 \item{...}{arguments passed down to methods.}
 
 \item{assay.name}{name of the assay to obtain expression matrix.}
+
+\item{gene.col}{name of the column containing gene names (default: symbol).}
 }
 \description{
 predict_celltyp
