@@ -1,28 +1,29 @@
 # process MCA data to be used as celltype dictionary.
 library(celltype)
-library(readr)
+#library(readr)
 library(tidyr)
 library(dplyr)
+library(mcatools)
 
-read_mca <- function(filename, mca.annot = NULL) {
-  cell_index <- scan(filename, nlines = 1, what = "")
-
-  x <- read_delim(filename, delim = " ", col_names = FALSE, skip = 1)
-  colnames(x) <- c("symbol", cell_index)
-
-  y <- x %>% gather(cell_index, count, -symbol)
-
-  if (! is.null(mca.annot)) {
-    y <- y %>% left_join(mca.annot, by = "cell_index")
-  }
-
-  y <- y %>% drop_na()
-}
-
-read_mca_annotations <- function(filename) {
-  x <- read_csv(filename)
-  x %>% select(cell_index = Cell.name, tissue = Tissue, celltype = Annotation)
-}
+# read_mca <- function(filename, mca.annot = NULL) {
+#   cell_index <- scan(filename, nlines = 1, what = "")
+#
+#   x <- read_delim(filename, delim = " ", col_names = FALSE, skip = 1)
+#   colnames(x) <- c("symbol", cell_index)
+#
+#   y <- x %>% gather(cell_index, count, -symbol)
+#
+#   if (! is.null(mca.annot)) {
+#     y <- y %>% left_join(mca.annot, by = "cell_index")
+#   }
+#
+#   y <- y %>% drop_na()
+# }
+#
+# read_mca_annotations <- function(filename) {
+#   x <- read_csv(filename)
+#   x %>% select(cell_index = Cell.name, tissue = Tissue, celltype = Annotation)
+# }
 
 ### MCA annotations.
 mca_annot <- read_mca_annotations("/Volumes/Biodev/db/expression/MCA/5435866/MCA_CellAssignments.csv")
