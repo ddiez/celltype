@@ -4,7 +4,9 @@
 # celltype
 
 The goal of celltype is to use a dictionary of cell types to identify
-the identity of each cell in single cell RNA-seq data
+the identity of each cell in single cell RNA-seq data. You can check
+about `celltype` usage by checking the package web site:
+<https://ddiez.github.io/celltype>
 
 ## Installation
 
