@@ -1,3 +1,4 @@
+^README\.Rmd$
 ^celltype\.Rproj$
 ^\.Rproj\.user$
 ^.*\.Rproj$
