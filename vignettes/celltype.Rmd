@@ -1,10 +1,10 @@
 ---
-title: "Analysis of cell type from single cell RNA-seq data"
+title: "Identification of cell types from single cell RNA-seq data"
 author: "Diego Diez"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Identification of cell types from single cell RNA-seq data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
