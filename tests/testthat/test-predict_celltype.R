@@ -1,6 +1,6 @@
 context("predict_celltype")
 
-celltype <- predict_celltype(celltype::sce1)
+celltype <- suppressWarnings(predict_celltype(celltype::sce1))
 
 test_that("predict_celltype works", {
   expect_is(celltype, "matrix")
@@ -10,7 +10,7 @@ test_that("predict_celltype works", {
 })
 
 db <- matrix(c(0, 1, 1, 0, .5, .5), ncol = 3, dimnames = list(c("Cd4", "Cd8a"), c("CD8+", "CD4+", "Other")))
-celltype <- predict_celltype(celltype::sce1, db = db)
+celltype <- suppressWarnings(predict_celltype(celltype::sce1, db = db))
 
 test_that("custom dictionary works", {
   expect_is(celltype, "matrix")
