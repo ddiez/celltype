@@ -1,6 +1,7 @@
+^docs$
+^_pkgdown\.yml$
 ^README\.Rmd$
 ^celltype\.Rproj$
 ^\.Rproj\.user$
 ^.*\.Rproj$
 ^data-raw$
-docs
