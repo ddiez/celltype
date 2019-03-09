@@ -16,6 +16,13 @@ predict_celltype <- function(x, org = "mouse", tissue = NULL, name = "immgen", d
 
 #' @rdname predict_celltype
 #' @export
+predict_celltype.Seurat <- function(x, org = "mouse", tissue = NULL, name = "immgen", db = NULL, assay.name = "data", gene.col = "symbol", ...) {
+  y <- as.matrix(GetAssayData(x, assay.name))
+  predict_celltype(y, org = org, name = name, tissue = tissue, db = db)
+}
+
+#' @rdname predict_celltype
+#' @export
 predict_celltype.SingleCellExperiment <- function(x, org = "mouse", tissue = NULL, name = "immgen", db = NULL, assay.name = "logcounts", gene.col = "symbol", ...) {
   y <- assay(x, assay.name)
   rownames(y) <- rowData(x)[[gene.col]]

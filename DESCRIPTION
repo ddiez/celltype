@@ -1,6 +1,6 @@
 Package: celltype
 Title: Prediction and analysis of cell types from single cell experiments
-Version: 0.0.9.9000
+Version: 0.0.10.9000
 Authors@R:
   person(given = "Diego",
          family = "Diez",
@@ -15,9 +15,10 @@ Imports:
   tibble,
   Biobase,
   SummarizedExperiment,
+  SingleCellExperiment,
+  Seurat,
   d10misc
 Suggests:
-  SingleCellExperiment,
   knitr,
   rmarkdown,
   testthat,

@@ -4,4 +4,5 @@
 #' @importFrom stats cor
 #' @importFrom Biobase exprs featureData pData
 #' @importFrom SummarizedExperiment assay rowData colData
+#' @importFrom Seurat GetAssayData
 "_PACKAGE"
