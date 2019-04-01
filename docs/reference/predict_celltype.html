@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">celltype</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10.9000</span>
       </span>
     </div>
 
@@ -110,6 +110,11 @@
 
     <pre class="usage"><span class='fu'>predict_celltype</span>(<span class='no'>x</span>, <span class='kw'>org</span> <span class='kw'>=</span> <span class='st'>"mouse"</span>, <span class='kw'>tissue</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"immgen"</span>,
   <span class='kw'>db</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for Seurat</span>
+<span class='fu'>predict_celltype</span>(<span class='no'>x</span>, <span class='kw'>org</span> <span class='kw'>=</span> <span class='st'>"mouse"</span>, <span class='kw'>tissue</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"immgen"</span>, <span class='kw'>db</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>assay.name</span> <span class='kw'>=</span> <span class='st'>"data"</span>,
+  <span class='kw'>gene.col</span> <span class='kw'>=</span> <span class='st'>"symbol"</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for SingleCellExperiment</span>
 <span class='fu'>predict_celltype</span>(<span class='no'>x</span>, <span class='kw'>org</span> <span class='kw'>=</span> <span class='st'>"mouse"</span>,
