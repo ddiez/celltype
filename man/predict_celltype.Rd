@@ -8,22 +8,54 @@
 \alias{predict_celltype.matrix}
 \title{predict_celltyp}
 \usage{
-predict_celltype(x, org = "mouse", tissue = NULL, name = "immgen",
-  db = NULL, ...)
+predict_celltype(
+  x,
+  org = "mouse",
+  tissue = NULL,
+  name = "immgen",
+  db = NULL,
+  ...
+)
 
-\method{predict_celltype}{Seurat}(x, org = "mouse", tissue = NULL,
-  name = "immgen", db = NULL, assay.name = "data",
-  gene.col = "symbol", ...)
+\method{predict_celltype}{Seurat}(
+  x,
+  org = "mouse",
+  tissue = NULL,
+  name = "immgen",
+  db = NULL,
+  assay.name = "data",
+  gene.col = "symbol",
+  ...
+)
 
-\method{predict_celltype}{SingleCellExperiment}(x, org = "mouse",
-  tissue = NULL, name = "immgen", db = NULL,
-  assay.name = "logcounts", gene.col = "symbol", ...)
+\method{predict_celltype}{SingleCellExperiment}(
+  x,
+  org = "mouse",
+  tissue = NULL,
+  name = "immgen",
+  db = NULL,
+  assay.name = "logcounts",
+  gene.col = "symbol",
+  ...
+)
 
-\method{predict_celltype}{ExpressionSet}(x, org = "mouse",
-  tissue = NULL, name = "immgen", db = NULL, ...)
+\method{predict_celltype}{ExpressionSet}(
+  x,
+  org = "mouse",
+  tissue = NULL,
+  name = "immgen",
+  db = NULL,
+  ...
+)
 
-\method{predict_celltype}{matrix}(x, org = "mouse", tissue = NULL,
-  name = "immgen", db = NULL, ...)
+\method{predict_celltype}{matrix}(
+  x,
+  org = "mouse",
+  tissue = NULL,
+  name = "immgen",
+  db = NULL,
+  ...
+)
 }
 \arguments{
 \item{x}{object with count matrix.}
